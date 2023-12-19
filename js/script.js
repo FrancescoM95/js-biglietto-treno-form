@@ -30,4 +30,17 @@ button.addEventListener('click', function () {
         alert('Inserisci un numero maggiore o uguale a 1.')
         location.reload();
     }
+
+    // CALCOLO IL PREZZO BASE
+    const basePrice = (kms * pricePerKm).toFixed(2);
+    let finalPrice = basePrice;
+
+    // VERIFICO SE È NECESSARIO APPLICARE UNO SCONTO
+    if (age < 18) discount = 20;
+    else if (age > 65) discount = 40;
+
+    // SE C'È UNO SCONTO LO APPLICO AL PREZZO FINALE
+    if (discount) {
+        finalPrice -= ((finalPrice / 100) * discount).toFixed(2);
+    }
 });
