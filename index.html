@@ -29,7 +29,7 @@
         <div class="row mb-4 rounded-2">
             <div class="col">
                 <div class="mb-3 p-5">
-                    <label for="userName" class="form-label">Nome e Cognome passeggero</label>
+                    <label for="userName" class="form-label text-nowrap">Nome e Cognome passeggero</label>
                     <input type="text" class="form-control" name="userName" id="userName" value="Tizio Caio">
                 </div>
             </div>
@@ -47,13 +47,13 @@
             </div>
         </div>
         <div class="button-group ">
-            <button type="button" id="button" class="me-1">Genera</button>
+            <button type="button" id="button" class="me-4">Genera</button>
             <button type="button" id="reset">Annulla</button>
         </div>
 
         <h3>il tuo biglietto</h3>
 
-        <div class="row">
+        <div class="row rounded-2">
             <div class="col">
                 <div class="table-box p-5">
                     <table class="text-start w-100 bg-success border">
@@ -71,7 +71,7 @@
                                 <td>Costo biglietto</td>
                             </tr>
                             <tr>
-                                <td class="bg-green border-end ps-3 fw-bold fs-5">Tizio Caio</td>
+                                <td id="name-box" class="bg-green border-end ps-3 fw-bold fs-5">Tizio Caio</td>
                             </tr>
                             <tr class="text-center">
                                 <td class="bg-green border-end"></td>

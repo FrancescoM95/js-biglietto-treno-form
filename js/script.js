@@ -3,6 +3,7 @@ console.log('JS OK');
 
 //* INITIAL VARIABLES
 // 
+const userName = document.getElementById('userName');
 const distance = document.getElementById('distance');
 let kms;
 const userAge = document.getElementById('userAge');
@@ -10,9 +11,10 @@ let age;
 const button = document.getElementById('button');
 const pricePerKm = 0.21;
 let discount = null;
-const total = document.getElementById('total');
+const nameBbox = document.getElementById('name-box');
 const range = document.getElementById('range');
 const wagon = document.getElementById('wagon');
+const total = document.getElementById('total');
 let min = 20
 let mid = 11111
 let max = 99999
@@ -28,7 +30,7 @@ distance.focus();
 button.addEventListener('click', function () {
     kms = parseInt(distance.value);
     age = parseInt(userAge.value);
-    console.log('km', kms, 'age', age);
+    console.log('name', userName.value, 'km', kms, 'age', age);
 
     //! VALIDATION 
 
@@ -52,9 +54,10 @@ button.addEventListener('click', function () {
 
     // MOSTRO IN PAGINA IL MESSAGGIO CON IL PREZZO FINALE 
     console.log('prezzo base €', basePrice, 'sconto %', discount, 'prezzo finale €', finalPrice.toFixed(2));
-    total.innerText = finalPrice.toFixed(2) + '€';
+    nameBbox.innerText = userName.value;
     wagon.innerText = Math.floor(Math.random() * min) + 1;
     cpnumber.innerText = Math.floor(Math.random() * (max + 1 - mid)) + mid;
+    total.innerText = finalPrice.toFixed(2) + '€';
 
     distance.value = '';
     userAge.value = '';

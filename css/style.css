@@ -25,3 +25,13 @@ td {
 .bg-green {
     background-color: darkgreen;
 }
+
+#button {
+    border-color: darkgreen;
+    scale: 1.2;
+}
+
+#reset {
+    border-color: red;
+    scale: 1.2;
+}
