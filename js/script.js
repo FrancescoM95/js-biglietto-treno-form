@@ -24,4 +24,10 @@ button.addEventListener('click', function () {
     age = parseInt(userAge.value);
     console.log('km', kms, 'age', age);
 
+    //! VALIDATION 
+
+    if (isNaN(age) || isNaN(kms) || age <= 0 || kms <= 0) {
+        alert('Inserisci un numero maggiore o uguale a 1.')
+        location.reload();
+    }
 });
