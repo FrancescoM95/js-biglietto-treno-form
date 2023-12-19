@@ -43,4 +43,10 @@ button.addEventListener('click', function () {
     if (discount) {
         finalPrice -= ((finalPrice / 100) * discount).toFixed(2);
     }
+
+    // MOSTRO IN PAGINA IL MESSAGGIO CON IL PREZZO FINALE 
+    total.innerText = priceMessage + finalPrice;
+    console.log('prezzo base €', basePrice, 'sconto %', discount, 'prezzo finale €', finalPrice);
+    distance.value = '';
+    userAge.value = '';
 });
