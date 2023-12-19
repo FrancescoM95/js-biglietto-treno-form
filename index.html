@@ -23,18 +23,83 @@
     <script defer src="js/script.js"></script>
 </head>
 
-<body class="py-3">
-    <div class="container">
-        <div class="mb-3">
-            <label for="kms" class="form-label">Km da percorrere</label>
-            <input type="number" class="form-control" name="distance" id="distance">
+<body>
+    <div class="container text-center">
+        <h1>calcola il prezzo del tuo biglietto!</h1>
+        <div class="row mb-4 rounded-2">
+            <div class="col">
+                <div class="mb-3 p-5">
+                    <label for="userName" class="form-label">Nome e Cognome passeggero</label>
+                    <input type="text" class="form-control" name="userName" id="userName" value="Tizio Caio">
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3 p-5">
+                    <label for="distance" class="form-label">Km da percorrere</label>
+                    <input type="number" class="form-control" name="distance" id="distance">
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3 p-5">
+                    <label for="userAge" class="form-label">Età</label>
+                    <input type="number" class="form-control" name="userAge" id="userAge">
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="age" class="form-label">Età</label>
-            <input type="number" class="form-control" name="userAge" id="userAge">
+        <div class="button-group ">
+            <button type="button" id="button" class="me-1">Genera</button>
+            <button type="button" id="reset">Annulla</button>
         </div>
-        <button type="button" id="button">Genera</button>
-        <h1 id="total"></h1>
+
+        <h3>il tuo biglietto</h3>
+
+        <div class="row">
+            <div class="col">
+                <div class="table-box p-5">
+                    <table class="text-start w-100 bg-success border">
+                        <thead class="p-5 border">
+                            <tr class="bg-green">
+                                <th class=" border text-uppercase fs-4">Dettaglio passeggeri</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-uppercase text-center fw-bold fs-5">
+                                <td class="bg-green border-end ps-3 text-start">Nome passeggero</td>
+                                <td>Offerta</td>
+                                <td>Carrozza</td>
+                                <td>Codice CP</td>
+                                <td>Costo biglietto</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-green border-end ps-3 fw-bold fs-5">Tizio Caio</td>
+                            </tr>
+                            <tr class="text-center">
+                                <td class="bg-green border-end"></td>
+                                <td id="range">Biglietto standard</td>
+                                <td id="wagon"></td>
+                                <td id="cpnumber"></td>
+                                <td id="total"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
 
 </body>

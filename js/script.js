@@ -11,7 +11,13 @@ const button = document.getElementById('button');
 const pricePerKm = 0.21;
 let discount = null;
 const total = document.getElementById('total');
-const priceMessage = 'Il totale del tuo biglietto è: €';
+const range = document.getElementById('range');
+const wagon = document.getElementById('wagon');
+let min = 20
+let mid = 11111
+let max = 99999
+const cpnumber = document.getElementById('cpnumber');
+
 
 
 //* MAIN LOGICS
@@ -45,8 +51,12 @@ button.addEventListener('click', function () {
     }
 
     // MOSTRO IN PAGINA IL MESSAGGIO CON IL PREZZO FINALE 
-    total.innerText = priceMessage + finalPrice.toFixed(2);
     console.log('prezzo base €', basePrice, 'sconto %', discount, 'prezzo finale €', finalPrice.toFixed(2));
+    total.innerText = finalPrice.toFixed(2) + '€';
+    wagon.innerText = Math.floor(Math.random() * min) + 1;
+    cpnumber.innerText = Math.floor(Math.random() * (max + 1 - mid)) + mid;
+
     distance.value = '';
     userAge.value = '';
+    distance.focus();
 });
