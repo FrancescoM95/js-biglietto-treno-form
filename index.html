@@ -23,7 +23,21 @@
     <script defer src="js/script.js"></script>
 </head>
 
-<body>
+<body class="py-3">
+    <div class="container">
+        <div class="mb-3">
+            <label for="kms" class="form-label">Km da percorrere</label>
+            <input type="text" class="form-control" name="distance" id="input">
+        </div>
+        <div class="mb-3">
+            <label for="age" class="form-label">Età</label>
+            <input type="text" class="form-control" name="userAge" id="age">
+        </div>
+        <button type="button" id="button">Genera</button>
+        <h1 id="total"></h1>
+        <p id="discount-message"></p>
+    </div>
+
 </body>
 
 </html>
