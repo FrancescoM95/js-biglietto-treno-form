@@ -41,12 +41,12 @@ button.addEventListener('click', function () {
 
     // SE C'È UNO SCONTO LO APPLICO AL PREZZO FINALE
     if (discount) {
-        finalPrice -= ((finalPrice / 100) * discount).toFixed(2);
+        finalPrice -= (finalPrice / 100) * discount;
     }
 
     // MOSTRO IN PAGINA IL MESSAGGIO CON IL PREZZO FINALE 
-    total.innerText = priceMessage + finalPrice;
-    console.log('prezzo base €', basePrice, 'sconto %', discount, 'prezzo finale €', finalPrice);
+    total.innerText = priceMessage + finalPrice.toFixed(2);
+    console.log('prezzo base €', basePrice, 'sconto %', discount, 'prezzo finale €', finalPrice.toFixed(2));
     distance.value = '';
     userAge.value = '';
 });
