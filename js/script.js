@@ -67,3 +67,8 @@ generate.addEventListener('click', function () {
 
     ticketSection.classList.remove('d-none');
 });
+
+reset.addEventListener('click', function () {
+    ticketSection.classList.add('d-none');
+    nameField.value = ageField.value = kmsField.value = '';
+});
