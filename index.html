@@ -24,68 +24,96 @@
 </head>
 
 <body>
-    <div class="container text-center">
-        <h1>calcola il prezzo del tuo biglietto!</h1>
-        <div class="row mb-4 rounded-2">
-            <div class="col">
-                <div class="mb-3 p-5">
-                    <label for="userName" class="form-label text-nowrap">Nome e Cognome passeggero</label>
-                    <input type="text" class="form-control" name="userName" id="userName" value="Tizio Caio">
+    <main class="container text-center">
+
+        <!--# SEZIONE FORM -->
+        <section id="form-section">
+
+            <h1>calcola il prezzo del tuo biglietto!</h1>
+
+            <div class="row mb-4 rounded-2">
+                <div class="col">
+                    <!-- NAME -->
+                    <div class="mb-3 p-5">
+                        <label for="name" class="form-label text-nowrap">Nome e Cognome passeggero</label>
+                        <input type="text" class="form-control" id="name" value="Tizio Caio">
+                    </div>
+                </div>
+                <!-- KMS -->
+                <div class="col">
+                    <div class="mb-3 p-5">
+                        <label for="kms" class="form-label">Km da percorrere</label>
+                        <input type="number" class="form-control" id="kms" min="1" value="10">
+                    </div>
+                </div>
+                <!-- AGE -->
+                <div class="col">
+                    <div class="mb-3 p-5">
+                        <label for="age" class="form-label">Fascia d'età</label>
+                        <select id="age" class="form-select">
+                            <option selected value="">Adulto</option>
+                            <option value="under">Under 18</option>
+                            <option value="over">Over 65</option>
+                        </select>
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="mb-3 p-5">
-                    <label for="distance" class="form-label">Km da percorrere</label>
-                    <input type="number" class="form-control" name="distance" id="distance">
+            <!-- BUTTONS -->
+            <div class="button-group text-end">
+                <button type="button" id="generate" class="me-4">Genera</button>
+                <button type="button" id="reset">Annulla</button>
+            </div>
+
+        </section>
+
+        <!--# SEZIONE BIGLIETTO -->
+        <section id="ticket-section" class="d-none">
+
+            <h3>il tuo biglietto</h3>
+
+            <div class="row rounded-2" id="ticket-section">
+                <div class="col">
+
+                    <div class="table-box p-5">
+                        <table class="text-start w-100 bg-success border">
+
+                            <thead class="p-5 border">
+                                <tr class="bg-green">
+                                    <th class=" border text-uppercase fs-4">Dettaglio passeggeri</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr class="text-uppercase text-center fw-bold fs-5">
+                                    <td class="bg-green border-end ps-3 text-start">Nome passeggero</td>
+                                    <td>Offerta</td>
+                                    <td>Carrozza</td>
+                                    <td>Codice CP</td>
+                                    <td>Costo biglietto</td>
+                                </tr>
+
+                                <tr>
+                                    <td id="passenger-name" class="bg-green border-end ps-3 fw-bold fs-5">Tizio Caio
+                                    </td>
+                                </tr>
+
+                                <tr class="text-center">
+                                    <td class="bg-green border-end"></td>
+                                    <td id="rate">Biglietto standard</td>
+                                    <td id="wagon"></td>
+                                    <td id="cpnumber"></td>
+                                    <td id="total"></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="mb-3 p-5">
-                    <label for="userAge" class="form-label">Età</label>
-                    <input type="number" class="form-control" name="userAge" id="userAge">
-                </div>
-            </div>
-        </div>
-        <div class="button-group ">
-            <button type="button" id="button" class="me-4">Genera</button>
-            <button type="button" id="reset">Annulla</button>
-        </div>
-
-        <h3>il tuo biglietto</h3>
-
-        <div class="row rounded-2">
-            <div class="col">
-                <div class="table-box p-5">
-                    <table class="text-start w-100 bg-success border">
-                        <thead class="p-5 border">
-                            <tr class="bg-green">
-                                <th class=" border text-uppercase fs-4">Dettaglio passeggeri</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="text-uppercase text-center fw-bold fs-5">
-                                <td class="bg-green border-end ps-3 text-start">Nome passeggero</td>
-                                <td>Offerta</td>
-                                <td>Carrozza</td>
-                                <td>Codice CP</td>
-                                <td>Costo biglietto</td>
-                            </tr>
-                            <tr>
-                                <td id="name-box" class="bg-green border-end ps-3 fw-bold fs-5">Tizio Caio</td>
-                            </tr>
-                            <tr class="text-center">
-                                <td class="bg-green border-end"></td>
-                                <td id="range">Biglietto standard</td>
-                                <td id="wagon"></td>
-                                <td id="cpnumber"></td>
-                                <td id="total"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-            </div>
-        </div>
+            <button type="button" id="buy-button">Acquista</button>
+        </section>
 
 
 
@@ -100,7 +128,8 @@
 
 
 
-    </div>
+
+    </main>
 
 </body>
 

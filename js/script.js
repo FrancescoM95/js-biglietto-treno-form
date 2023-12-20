@@ -2,71 +2,68 @@ console.log('JS OK');
 
 
 //* INITIAL VARIABLES
-// 
-const userName = document.getElementById('userName');
-const distance = document.getElementById('distance');
-let kms;
-const userAge = document.getElementById('userAge');
-let age;
-const button = document.getElementById('button');
+// FORM ELEMENTS
+const nameField = document.getElementById('name');
+const kmsField = document.getElementById('kms');
+const ageField = document.getElementById('age');
+
+// BUTTONS
+const generate = document.getElementById('generate');
 const reset = document.getElementById('reset');
+const buyButton = document.getElementById('buy-button');
+
+// TICKETS ELEMENTS
+const ticketSection = document.getElementById('ticket-section');
+const passengerElement = document.getElementById('passenger-name');
+const rateElement = document.getElementById('rate');
+const wagonElement = document.getElementById('wagon');
+const cpnumberElement = document.getElementById('cpnumber');
+const totalElement = document.getElementById('total');
+
+// INITIAL VARIABLES
 const pricePerKm = 0.21;
-let discount = null;
-const nameBbox = document.getElementById('name-box');
-const range = document.getElementById('range');
-const wagon = document.getElementById('wagon');
-const total = document.getElementById('total');
-let min = 20
-let mid = 11111
-let max = 99999
-const cpnumber = document.getElementById('cpnumber');
-
-
+let rateName = 'Tariffa Standard';
 
 //* MAIN LOGICS
 
-distance.focus();
+generate.addEventListener('click', function () {
+    // PRENDO INFORMAZIONI PRESENTI NEGLI INPUT AL CLICK DEL BOTTONE
+    const nameValue = nameField.value.trim();
+    const kmsValue = parseInt(kmsField.value);
+    const ageValue = ageField.value;
 
-// PRENDO INFORMAZIONI PRESENTI NEGLI INPUT AL CLICK DEL BOTTONE
-button.addEventListener('click', function () {
-    kms = parseInt(distance.value);
-    age = parseInt(userAge.value);
-    console.log('name', userName.value, 'km', kms, 'age', age);
-
-    //! VALIDATION 
-
-    if (isNaN(age) || isNaN(kms) || age <= 0 || kms <= 0) {
-        alert('Inserisci un numero maggiore o uguale a 1.')
-        location.reload();
-    }
+    console.log('name:', nameValue, 'km:', kmsValue, 'age:', ageValue);
 
     // CALCOLO IL PREZZO BASE
-    const basePrice = (kms * pricePerKm).toFixed(2);
-    let finalPrice = basePrice;
+    let price = pricePerKm * kmsValue;
 
     // VERIFICO SE È NECESSARIO APPLICARE UNO SCONTO
-    if (age < 18) discount = 20;
-    else if (age > 65) discount = 40;
-
-    // SE C'È UNO SCONTO LO APPLICO AL PREZZO FINALE
-    if (discount) {
-        finalPrice -= (finalPrice / 100) * discount;
+    if (ageValue === 'under') {
+        rateName = 'Tariffa junior';
+        price *= 0.8;
+    } else if (ageValue === 'over') {
+        rateName = 'Tariffa senior';
+        price *= 0.6;
     }
 
-    // MOSTRO IN PAGINA IL MESSAGGIO CON IL PREZZO FINALE 
-    console.log('prezzo base €', basePrice, 'sconto %', discount, 'prezzo finale €', finalPrice.toFixed(2));
-    nameBbox.innerText = userName.value;
-    wagon.innerText = Math.floor(Math.random() * min) + 1;
-    cpnumber.innerText = Math.floor(Math.random() * (max + 1 - mid)) + mid;
-    total.innerText = finalPrice.toFixed(2) + '€';
+    console.log('prezzo:', price, 'tariffa:', rateName);
 
-    distance.value = '';
-    userAge.value = '';
-    distance.focus();
-});
+    // RANDOMIZZO CARROZZA
+    const wagon = Math.floor(Math.random() * 15) + 1;
+    console.log('carrozza:', wagon);
 
-reset.addEventListener('click', function () {
-    userName.value = '';
-    distance.value = '';
-    userAge.value = '';
+    // RANDOMIZZO CPNUMBER
+    const cpn = Math.floor(Math.random() * (100000 - 80000)) + 80000;
+    console.log('codice cp:', cpn);
+
+    // MONTO I DATI NEL BIGLIETTO
+    passengerElement.innerText = nameValue;
+    rateElement.innerText = rateName;
+    wagonElement.innerText = wagon
+    cpnumberElement.innerText = cpn
+    totalElement.innerText = '€' + price.toFixed(2);
+
+    // MOSTRO IL BIGLIETTO
+
+    ticketSection.classList.remove('d-none');
 });

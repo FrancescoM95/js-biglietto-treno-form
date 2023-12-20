@@ -14,7 +14,7 @@ h3 {
     text-transform: uppercase;
     font-size: 3rem;
     font-weight: 800;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 th,
@@ -26,7 +26,8 @@ td {
     background-color: darkgreen;
 }
 
-#button {
+#generate,
+#buy-button {
     border-color: darkgreen;
     scale: 1.2;
 }
@@ -34,6 +35,10 @@ td {
 #reset {
     border-color: red;
     scale: 1.2;
+}
+
+#buy-button {
+    margin-top: 20px;
 }
 
 #button:active,
