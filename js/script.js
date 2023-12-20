@@ -46,7 +46,7 @@ generate.addEventListener('click', function () {
         price *= 0.6;
     }
 
-    console.log('prezzo:', price, 'tariffa:', rateName);
+    console.log('prezzo:', price.toFixed(2), rateName);
 
     // RANDOMIZZO CARROZZA
     const wagon = Math.floor(Math.random() * 15) + 1;
