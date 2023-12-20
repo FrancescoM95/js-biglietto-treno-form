@@ -35,3 +35,8 @@ td {
     border-color: red;
     scale: 1.2;
 }
+
+#button:active,
+#reset:active {
+    scale: 1;
+}

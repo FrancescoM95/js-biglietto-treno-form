@@ -9,6 +9,7 @@ let kms;
 const userAge = document.getElementById('userAge');
 let age;
 const button = document.getElementById('button');
+const reset = document.getElementById('reset');
 const pricePerKm = 0.21;
 let discount = null;
 const nameBbox = document.getElementById('name-box');
@@ -62,4 +63,10 @@ button.addEventListener('click', function () {
     distance.value = '';
     userAge.value = '';
     distance.focus();
+});
+
+reset.addEventListener('click', function () {
+    userName.value = '';
+    distance.value = '';
+    userAge.value = '';
 });
